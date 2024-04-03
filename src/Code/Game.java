@@ -1,5 +1,9 @@
 package Code;
 
+import items.Air;
+import items.Item;
+import quests.QuestPattern;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,16 +16,20 @@ import java.io.IOException;
  * Trida, spoustici a ridici hru
  */
 public class Game {
+    private QuestPattern actualQuest;
+    private Item[] inventory = new Item[200];
 
     public Game(){
-        BufferedImage _img = img();
+        for (int i = 0; i < inventory.length; i++) {
+            inventory[i] = new Air();
+        }
 
         JFrame window = new JFrame();
         window.setSize(720,540);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("RPG game");
-        window.setIconImage(_img);
+        window.setIconImage(img());
 
         MainMenu menu = new MainMenu();
         GamePanel gamePanel = new GamePanel();
