@@ -1,5 +1,7 @@
 package Code;
 
+import Locations.MainLocation;
+import com.sun.tools.javac.Main;
 import items.Air;
 import items.Item;
 import quests.QuestPattern;
@@ -18,6 +20,7 @@ import java.io.IOException;
 public class Game {
     private QuestPattern actualQuest;
     private Item[] inventory = new Item[200];
+    private Location currentLocation = new MainLocation();
 
     public Game(){
         for (int i = 0; i < inventory.length; i++) {
@@ -32,7 +35,7 @@ public class Game {
         window.setIconImage(img());
 
         MainMenu menu = new MainMenu();
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = new GamePanel(this);
         JButton startButton = new JButton();
 
         startButton.setText("START");
@@ -62,5 +65,12 @@ public class Game {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
     }
 }

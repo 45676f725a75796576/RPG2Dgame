@@ -1,11 +1,14 @@
 package Code;
 
+import Locations.MainLocation;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -31,13 +34,17 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
 
     Player player = PlayerBuilder.builder("thief");
+    Game game;
+
+    Location currentLocation = new MainLocation();
 
     BufferedImage bg;
 
     int score = 0;
 
-    public GamePanel()
+    public GamePanel(Game game1)
     {
+        game = game1;
         player.gp = this;
         Random r = new Random();
         this.setPreferredSize(new Dimension(720, 540));
@@ -56,7 +63,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void TryGetBG(){
         try {
-            bg = ImageIO.read(getClass().getResourceAsStream("/images/bG.png"));
+            bg = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(currentLocation.getImg())));
         } catch (IOException e){
             e.printStackTrace();
         }

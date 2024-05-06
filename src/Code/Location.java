@@ -7,7 +7,7 @@ public class Location {
 
     }
     private Location locationInRight, locationInLeft;
-    private BufferedImage img;
+    protected String imgPath;
 
     // region get&set
     public Location getLocationInRight() {
@@ -22,11 +22,11 @@ public class Location {
     public void setLocationInLeft(Location locationInLeft) {
         this.locationInLeft = locationInLeft;
     }
-    public BufferedImage getImg() {
-        return img;
+    public String getImg() {
+        return imgPath;
     }
-    public void setImg(BufferedImage img) {
-        this.img = img;
+    public void setImg(String img) {
+        this.imgPath = img;
     }
     // endregion
 }
