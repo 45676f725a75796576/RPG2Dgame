@@ -40,15 +40,11 @@ public class Player extends Entity {
         BufferedImage _image = null;
 
         if(upPressed && posX > 128) posX -= speed;
-        if(downPressed && posX < 524) posX += speed;
-        if(leftPressed && posY > -30) {posY -= speed; flip = -1; offset = 128;}
+        if(downPressed && posX < 476) posX += speed;
+        if(leftPressed && posY > -16) {posY -= speed; flip = -1; offset = 112;}
         if(rightPressed && posY < 660) {posY += speed; flip = 1; offset = 0;}
 
         _image = idle;
-
-        if(flip == -1){
-            offset = 128;
-        }
         g2.drawImage(_image, posY + offset,posX,  (int) (gp.tileSize * 2 * flip), gp.tileSize * 2, null);
     }
 }
