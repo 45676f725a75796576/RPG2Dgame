@@ -49,7 +49,7 @@ public class Game {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
-        currentLocation.setLocationInLeft(new MainLocation());
+        currentLocation.setLocationInLeft(new Location("src/images/location2.png"));
         currentLocation.getLocationInLeft().setLocationInRight(currentLocation);
 
         startButton.addActionListener(new ActionListener() {

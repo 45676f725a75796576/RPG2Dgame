@@ -2,7 +2,9 @@ package Code;
 
 public class Location {
     public Location(){
-
+    }
+    public Location(String bgURL){
+        setImg(bgURL);
     }
     private Location locationInRight, locationInLeft;
     protected String imgPath;

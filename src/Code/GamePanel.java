@@ -105,7 +105,11 @@ public class GamePanel extends JPanel implements Runnable{
         player.rightPressed = keyH.rightPressed;
         player.hit = keyH.hit;
         player.use = keyH.use;
-        currentLocation = game.getCurrentLocation();
+        if(!currentLocation.getClass().equals(game.getCurrentLocation())){
+            currentLocation = game.getCurrentLocation();
+            TryGetBG();
+        }
+
     }
 
     public void paintComponent(Graphics g)
