@@ -1,32 +1,46 @@
 package Code;
 
-public class Location {
-    public Location(){
-    }
-    public Location(String bgURL){
-        setImg(bgURL);
-    }
-    private Location locationInRight, locationInLeft;
-    protected String imgPath;
+import Procedures.Procedure;
 
-    // region get&set
-    public Location getLocationInRight() {
-        return locationInRight;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Location implements Serializable {
+    private String locationID;
+    private String name;
+    private String imageOfLocationPath;
+    private ArrayList<String> nextLocations = new ArrayList<>();
+
+    public String getName() {
+        return name;
     }
-    public void setLocationInRight(Location locationInRight) {
-        this.locationInRight = locationInRight;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public Location getLocationInLeft() {
-        return locationInLeft;
+
+    public String getImageOfLocationPath() {
+        return imageOfLocationPath;
     }
-    public void setLocationInLeft(Location locationInLeft) {
-        this.locationInLeft = locationInLeft;
+
+    public void setImageOfLocationPath(String imageOfLocationPath) {
+        this.imageOfLocationPath = imageOfLocationPath;
     }
-    public String getImg() {
-        return imgPath;
+
+    public void addNextLocation(String locationID)
+    {
+        nextLocations.add(locationID);
     }
-    public void setImg(String img) {
-        this.imgPath = img;
+
+    public ArrayList<String> getNextLocations() {
+        return nextLocations;
     }
-    // endregion
+
+    public String getLocationID(){
+        return locationID;
+    }
+    public void setLocationID(String ID){
+        locationID = ID;
+    }
 }

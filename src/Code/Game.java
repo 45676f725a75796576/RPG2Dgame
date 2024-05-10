@@ -1,7 +1,5 @@
 package Code;
 
-import Locations.MainLocation;
-import com.sun.tools.javac.Main;
 import items.Air;
 import items.Item;
 import quests.QuestPattern;
