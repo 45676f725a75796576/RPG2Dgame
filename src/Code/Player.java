@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Player extends Entity {
     GamePanel gp;
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, hit;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, hit, use;
 
     protected int healthPoints = 20, damage = 1, speed = 5;
 
@@ -32,7 +32,7 @@ public class Player extends Entity {
      * Metoda pro vyber obrazku
      */
 
-    int flip = 1,offset = 0;
+    private int flip = 1,offset = 0;
 
 
     public void Draw(Graphics2D g2)
@@ -41,8 +41,17 @@ public class Player extends Entity {
 
         if(upPressed && posX > 128) posX -= speed;
         if(downPressed && posX < 476) posX += speed;
-        if(leftPressed && posY > -16) {posY -= speed; flip = -1; offset = 112;}
+        if(leftPressed && posY > -56) {posY -= speed; flip = -1; offset = 112;}
         if(rightPressed && posY < 660) {posY += speed; flip = 1; offset = 0;}
+
+        if(use && posY < -46 && gp.game.getCurrentLocation().getLocationInLeft() != null) {
+            gp.game.setCurrentLocation(gp.game.getCurrentLocation().getLocationInLeft());
+            posY = 650;
+        }
+        if(use && posY > 650 && gp.game.getCurrentLocation().getLocationInRight() != null) {
+            gp.game.setCurrentLocation(gp.game.getCurrentLocation().getLocationInRight());
+            posY = -46;
+        }
 
         _image = idle;
         g2.drawImage(_image, posY + offset,posX,  (int) (gp.tileSize * 2 * flip), gp.tileSize * 2, null);

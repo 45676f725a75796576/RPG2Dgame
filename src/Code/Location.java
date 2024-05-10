@@ -1,7 +1,5 @@
 package Code;
 
-import java.awt.image.BufferedImage;
-
 public class Location {
     public Location(){
 

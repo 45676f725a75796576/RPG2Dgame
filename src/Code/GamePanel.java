@@ -27,19 +27,19 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenWidth = tileSize * maxScreenCol;
     final int screenHeight = tileSize * maxScreenRow;
 
-    int idle = 0;
+    private int idle = 0;
 
-    int FPS = 30;
+    private int FPS = 30;
 
-    KeyHandler keyH = new KeyHandler();
-    Thread gameThread;
+    private KeyHandler keyH = new KeyHandler();
+    private Thread gameThread;
 
-    Player player = PlayerBuilder.builder("thief");
+    private Player player = PlayerBuilder.builder("thief");
     Game game;
 
-    Location currentLocation = new MainLocation();
+    private Location currentLocation = new MainLocation();
 
-    BufferedImage bg;
+    private BufferedImage bg;
 
     int score = 0;
 
@@ -104,6 +104,8 @@ public class GamePanel extends JPanel implements Runnable{
         player.leftPressed = keyH.leftPressed;
         player.rightPressed = keyH.rightPressed;
         player.hit = keyH.hit;
+        player.use = keyH.use;
+        currentLocation = game.getCurrentLocation();
     }
 
     public void paintComponent(Graphics g)

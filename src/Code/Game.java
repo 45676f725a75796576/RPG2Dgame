@@ -49,6 +49,9 @@ public class Game {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
+        currentLocation.setLocationInLeft(new MainLocation());
+        currentLocation.getLocationInLeft().setLocationInRight(currentLocation);
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

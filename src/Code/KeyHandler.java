@@ -9,7 +9,7 @@ import java.security.Key;
  */
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, hit;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, hit, use;
     @Override
     public void keyTyped(KeyEvent e){}
 
@@ -33,6 +33,7 @@ public class KeyHandler implements KeyListener {
         {
             rightPressed = true;
         }if(code == KeyEvent.VK_SPACE) hit = true;
+        if(code == KeyEvent.VK_E) use = true;
     }
 
     @Override
@@ -55,5 +56,6 @@ public class KeyHandler implements KeyListener {
         {
             rightPressed = false;
         } if(code == KeyEvent.VK_SPACE) hit = false;
+        if(code == KeyEvent.VK_E) use = false;
     }
 }
