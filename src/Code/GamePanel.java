@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
@@ -63,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void TryGetBG(){
         try {
-            bg = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(currentLocation.getImg())));
+            bg = ImageIO.read(new File(currentLocation.getImg()));
         } catch (IOException e){
             e.printStackTrace();
         }
