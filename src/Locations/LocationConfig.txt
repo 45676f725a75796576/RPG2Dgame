@@ -1,0 +1,3 @@
+src/Locations/MainLocation.txt
+src/Locations/MainToGateLocation.txt
+src/Locations/GateLocation.txt

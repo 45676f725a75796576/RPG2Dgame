@@ -1,0 +1,4 @@
+name=MainLocation
+locationID=0
+imageOfLocationPath=src/images/location1.png
+nextLocations=1

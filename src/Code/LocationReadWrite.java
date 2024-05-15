@@ -12,7 +12,7 @@ public class LocationReadWrite {
         try {
             PrintStream p = new PrintStream("src/Locations/" + location.getName() + ".txt");
             p.println("locationID=" + location.getLocationID());
-            p.println("imageOfLocationPath=" + location.getImageOfLocationPath());
+            p.println("imageOfLocationPath=" + location.getImg());
             p.println("nextLocations=" + location.getNextLocations());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -29,7 +29,6 @@ public class LocationReadWrite {
                 if(s[0].equalsIgnoreCase("name")) result.setName(s[1]);
                 else if(s[0].equalsIgnoreCase("locationID")) result.setLocationID(s[1]);
                 else if(s[0].equalsIgnoreCase("imageOfLocationPath")) result.setImageOfLocationPath(s[1]);
-                else if(s[0].equalsIgnoreCase("description")) result.setDescription(s[1]);
                 else if(s[0].equalsIgnoreCase("nextLocations")) {
                     s = s[1].split(",");
                     for (int i = 0; i < s.length; i++) {

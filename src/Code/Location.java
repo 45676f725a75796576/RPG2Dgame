@@ -1,7 +1,5 @@
 package Code;
 
-import Procedures.Procedure;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +18,7 @@ public class Location implements Serializable {
         this.name = name;
     }
 
-    public String getImageOfLocationPath() {
+    public String getImg() {
         return imageOfLocationPath;
     }
 

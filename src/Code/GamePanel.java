@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Player player = PlayerBuilder.builder("thief");
     Game game;
 
-    private Location currentLocation = new MainLocation();
+    private Location currentLocation;
 
     private BufferedImage bg;
 
@@ -43,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
     public GamePanel(Game game1)
     {
         game = game1;
+        currentLocation = game.getCurrentLocation();
         player.gp = this;
         Random r = new Random();
         this.setPreferredSize(new Dimension(720, 540));
