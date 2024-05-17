@@ -9,6 +9,7 @@ public class Location implements Serializable {
     private String name;
     private String imageOfLocationPath;
     private ArrayList<String> nextLocations = new ArrayList<>();
+    private ArrayList<Enemy> enemiesOnLocation = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -40,5 +41,13 @@ public class Location implements Serializable {
     }
     public void setLocationID(String ID){
         locationID = ID;
+    }
+
+    public ArrayList<Enemy> getEnemiesOnLocation() {
+        return enemiesOnLocation;
+    }
+
+    public void setEnemiesOnLocation(ArrayList<Enemy> enemiesOnLocation) {
+        this.enemiesOnLocation = enemiesOnLocation;
     }
 }

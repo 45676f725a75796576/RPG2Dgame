@@ -107,7 +107,9 @@ public class GamePanel extends JPanel implements Runnable{
             currentLocation = game.getCurrentLocation();
             TryGetBG();
         }
-
+        for (Enemy enemy : currentLocation.getEnemiesOnLocation()) {
+            enemy.setxCord(enemy.getxCord() + (int) (5 * ));
+        }
     }
 
     public void paintComponent(Graphics g)
@@ -122,6 +124,14 @@ public class GamePanel extends JPanel implements Runnable{
 
         g2.setColor(Color.WHITE);
         g2.drawString("money: " + score, 100, 100);
+
+        for (int i = 0; i < currentLocation.getEnemiesOnLocation().size(); i++) {
+            try {
+                g2.drawImage(ImageIO.read(new File(currentLocation.getEnemiesOnLocation().get(i).getImgPath())), currentLocation.getEnemiesOnLocation().get(i).getxCord(),currentLocation.getEnemiesOnLocation().get(i).getyCord(), tileSize * 2,tileSize * 2,null);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         g2.dispose();
 

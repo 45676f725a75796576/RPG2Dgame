@@ -1,8 +1,12 @@
 package Code;
 
+import com.google.gson.Gson;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LocationReadWrite {
@@ -10,10 +14,12 @@ public class LocationReadWrite {
     public static void Write(Location location)
     {
         try {
+            Gson g = new Gson();
             PrintStream p = new PrintStream("src/Locations/" + location.getName() + ".txt");
             p.println("locationID=" + location.getLocationID());
             p.println("imageOfLocationPath=" + location.getImg());
             p.println("nextLocations=" + location.getNextLocations());
+            p.println("enemiesOnLocation=" + g.toJson(location.getEnemiesOnLocation()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -34,6 +40,10 @@ public class LocationReadWrite {
                     for (int i = 0; i < s.length; i++) {
                         result.addNextLocation(s[i]);
                     }
+                } else if (s[0].equalsIgnoreCase("enemiesOnLocation")) {
+                    Gson g = new Gson();
+                    Enemy[] enemies = g.fromJson(s[1], Enemy[].class);
+                    result.setEnemiesOnLocation(new ArrayList<>(Arrays.asList(enemies)));
                 }
             }
 

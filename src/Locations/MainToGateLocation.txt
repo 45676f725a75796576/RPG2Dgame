@@ -1,4 +1,4 @@
 name=MainToGateLocation
 locationID=1
 imageOfLocationPath=src/images/location2.png
-nextLocations=2,0
+nextLocations=0,2
