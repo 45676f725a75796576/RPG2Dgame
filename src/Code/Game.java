@@ -1,6 +1,7 @@
 package Code;
 
 import items.Air;
+import items.IronArmor;
 import items.Item;
 import quests.QuestPattern;
 
@@ -82,5 +83,13 @@ public class Game {
     }
     public void setCurrentLocation(String ID) {
         this.currentLocation = locations.get(ID);
+    }
+
+    public void addItemToInventory(String lootID){
+        if(lootID.equalsIgnoreCase("1")){
+            for (int i = 0; i < 200; i++) {
+                if(inventory[i] instanceof Air) inventory[i] = new IronArmor();
+            }
+        }
     }
 }

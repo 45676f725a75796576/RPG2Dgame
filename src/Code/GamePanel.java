@@ -112,8 +112,10 @@ public class GamePanel extends JPanel implements Runnable{
             if(enemy.getxCord() < player.posX) enemy.setxCord(enemy.getxCord() + 2);
             if(enemy.getyCord() > player.posY) enemy.setyCord(enemy.getyCord() - 2);
             if(enemy.getyCord() < player.posY) enemy.setyCord(enemy.getyCord() + 2);
-
         }
+        currentLocation.getEnemiesOnLocation().removeIf(enemy -> enemy.getHealthPoints() <= 0);
+
+        if(player.hit) player.Attack(currentLocation.getEnemiesOnLocation());
     }
 
     public void paintComponent(Graphics g)
@@ -132,6 +134,10 @@ public class GamePanel extends JPanel implements Runnable{
         for (int i = 0; i < currentLocation.getEnemiesOnLocation().size(); i++) {
             try {
                 g2.drawImage(ImageIO.read(new File(currentLocation.getEnemiesOnLocation().get(i).getImgPath())), currentLocation.getEnemiesOnLocation().get(i).getyCord(),currentLocation.getEnemiesOnLocation().get(i).getxCord(), tileSize * 2,tileSize * 2,null);
+                g2.setColor(Color.RED);
+                g2.fillRect(currentLocation.getEnemiesOnLocation().get(i).getyCord(), currentLocation.getEnemiesOnLocation().get(i).getxCord(), currentLocation.getEnemiesOnLocation().get(i).getHealthPoints() * 4, 10);
+
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

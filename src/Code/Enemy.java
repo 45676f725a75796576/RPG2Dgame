@@ -50,6 +50,22 @@ public class Enemy{
         this.lootID = lootID;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
     @Override
     public String toString() {
         return "{imgPath:"+imgPath +",xCord:"+xCord+",yCord:"+yCord+",lootID:"+lootID+",damage:"+damage+",healthPoints:"+healthPoints+"}";

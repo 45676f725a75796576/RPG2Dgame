@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Hrac
@@ -55,5 +56,14 @@ public class Player extends Entity {
 
         _image = idle;
         g2.drawImage(_image, posY + offset,posX,  (int) (gp.tileSize * 2 * flip), gp.tileSize * 2, null);
+    }
+    public void Attack(ArrayList<Enemy> enemies){
+        for (Enemy enemy : enemies) {
+            if(this.hit &&
+                    Math.abs(enemy.getxCord() - this.posX) < 10 &&
+                    Math.abs(enemy.getyCord() - this.posY) < 10) {
+                enemy.setHealthPoints(enemy.getHealthPoints() - damage);
+            }
+        }
     }
 }

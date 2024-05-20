@@ -1,4 +1,4 @@
 locationID=null
 imageOfLocationPath=src/images/null.png
 nextLocations=0,2
-enemiesOnLocation=[{"imgPath":"src/images/knight.png","xCord":300,"yCord":300,"lootID":"0","damage":1,"healthPoints":10}]
+enemiesOnLocation=[{"imgPath":"src/images/knight.png","xCord":300,"yCord":300,"lootID":"1","damage":1,"healthPoints":10}]
