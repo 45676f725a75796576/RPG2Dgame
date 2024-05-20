@@ -1,12 +1,6 @@
-import Code.Enemy;
 import Code.Game;
-import Code.Location;
-import Code.LocationReadWrite;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * Main trida, spousti celou hru
  */
