@@ -16,6 +16,8 @@ public class Player extends Entity {
 
     protected int healthPoints = 20, damage = 1, speed = 5;
 
+    protected long attackSpeed = 15;
+
     protected int posX = 250, posY = 250;
 
     /**
@@ -65,5 +67,13 @@ public class Player extends Entity {
                 enemy.setHealthPoints(enemy.getHealthPoints() - damage);
             }
         }
+    }
+
+    public long getAttackSpeed() {
+        return attackSpeed;
+    }
+
+    public void setAttackSpeed(long attackSpeed) {
+        this.attackSpeed = attackSpeed;
     }
 }

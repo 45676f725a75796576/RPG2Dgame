@@ -118,7 +118,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         recoverAttack-=1;
         if(player.hit && recoverAttack < 0){
-            recoverAttack = 15;
+            recoverAttack = player.getAttackSpeed();
             player.Attack(currentLocation.getEnemiesOnLocation());
         }
     }
