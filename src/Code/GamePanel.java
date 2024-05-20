@@ -39,6 +39,7 @@ public class GamePanel extends JPanel implements Runnable{
     private BufferedImage bg;
 
     int score = 0;
+    private long recoverAttack = 0;
 
     public GamePanel(Game game1)
     {
@@ -115,7 +116,11 @@ public class GamePanel extends JPanel implements Runnable{
         }
         currentLocation.getEnemiesOnLocation().removeIf(enemy -> enemy.getHealthPoints() <= 0);
 
-        if(player.hit) player.Attack(currentLocation.getEnemiesOnLocation());
+        recoverAttack-=1;
+        if(player.hit && recoverAttack < 0){
+            recoverAttack = 15;
+            player.Attack(currentLocation.getEnemiesOnLocation());
+        }
     }
 
     public void paintComponent(Graphics g)
