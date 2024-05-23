@@ -62,8 +62,8 @@ public class Player extends Entity {
     public void Attack(ArrayList<Enemy> enemies){
         for (Enemy enemy : enemies) {
             if(this.hit &&
-                    Math.abs(enemy.getxCord() - this.posX) < 10 &&
-                    Math.abs(enemy.getyCord() - this.posY) < 10) {
+                    Math.abs(enemy.getxCord() - this.posX) < 45 &&
+                    Math.abs(enemy.getyCord() - this.posY) < 60) {
                 enemy.setHealthPoints(enemy.getHealthPoints() - damage);
             }
         }

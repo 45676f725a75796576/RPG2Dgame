@@ -2,3 +2,4 @@ name=MainToGateLocation
 locationID=1
 imageOfLocationPath=src/images/location2.png
 nextLocations=0,2
+enemiesOnLocation=[{"imgPath":"src/images/bubak1.png","xCord":300,"yCord":300,"lootID":"1","damage":1,"healthPoints":8}]

@@ -26,6 +26,14 @@ public class Game {
     private Location currentLocation;
     private HashMap<String, Location> locations;
 
+    public static void main(String[] args){
+        try {
+            new Game();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Game() throws FileNotFoundException {
         for (int i = 0; i < inventory.length; i++) {
             inventory[i] = new Air();
