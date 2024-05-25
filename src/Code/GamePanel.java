@@ -97,10 +97,6 @@ public class GamePanel extends JPanel implements Runnable{
             if(player.healthPoints <= 0) {
                 break;
             }
-            if(score > 15){
-                game.getWindow().add(new EndMenu());
-                break;
-            }
         }
     }
 
@@ -122,14 +118,10 @@ public class GamePanel extends JPanel implements Runnable{
             if(enemy.getyCord() > player.posY) enemy.setyCord(enemy.getyCord() - 2);
             if(enemy.getyCord() < player.posY) enemy.setyCord(enemy.getyCord() + 2);
             enemy.Attack(player);
+            if(enemy.getHealthPoints() <= 0) score += 10;
         }
+
         currentLocation.getEnemiesOnLocation().removeIf(enemy -> enemy.getHealthPoints() <= 0);
-        for(Enemy enemy : currentLocation.getEnemiesOnLocation()){
-            if(enemy.getHealthPoints() <= 0){
-                score += 10;
-                currentLocation.getEnemiesOnLocation().remove(enemy);
-            }
-        }
 
         recoverAttack-=1;
         if(player.hit && recoverAttack < 0){
@@ -157,6 +149,19 @@ public class GamePanel extends JPanel implements Runnable{
                 g2.setColor(Color.RED);
                 g2.fillRect(100,70,20*player.healthPoints, 20);
                 g2.fillRect(currentLocation.getEnemiesOnLocation().get(i).getyCord(), currentLocation.getEnemiesOnLocation().get(i).getxCord(), currentLocation.getEnemiesOnLocation().get(i).getHealthPoints() * 4, 10);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        if(score > 16){
+            g2.setColor(Color.BLACK);
+            g2.fillRect(0,0,800,600);
+            g2.setColor(Color.WHITE);
+            g2.drawString("You have succesfully helped a novice hero with his first feat. Many adventures and achievements still await him,", 20,20);
+            g2.drawString(" but you turn off the game. There is nothing further. Only potato.",20,40);
+            try {
+                g2.drawImage(ImageIO.read(new File("src/images/R (13).jpg")), 50, 50, 100,100,null);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
