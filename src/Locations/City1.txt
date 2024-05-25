@@ -1,4 +1,4 @@
 name=City1
 locationID=3
 imageOfLocationPath=src/images/city1.png
-nextLocations=2,null
+nextLocations=2,4s

@@ -88,7 +88,7 @@ public class Game {
 
     public Location getCurrentLocation() {
         return currentLocation;
-    }
+    }aa
     public void setCurrentLocation(String ID) {
         this.currentLocation = locations.get(ID);
     }

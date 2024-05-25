@@ -1,10 +1,13 @@
 package Code;
 
+import java.util.ArrayList;
+
 public class Enemy{
     private String imgPath;
     private int xCord, yCord;
     private String lootID;
     private int damage, healthPoints;
+    private long attackSpeed = 20, l = 0;
 
     public Enemy(String imgPath, int xCord, int yCord, String lootID, int damage, int healthPoints) {
         this.imgPath = imgPath;
@@ -69,5 +72,14 @@ public class Enemy{
     @Override
     public String toString() {
         return "{imgPath:"+imgPath +",xCord:"+xCord+",yCord:"+yCord+",lootID:"+lootID+",damage:"+damage+",healthPoints:"+healthPoints+"}";
+    }
+    public void Attack(Player player){
+        l++;
+            if(Math.abs(this.getxCord() - player.posX) < 15 &&
+                    Math.abs(this.getyCord() - player.posY) < 30 &&
+                    l>attackSpeed) {
+                l = 0;
+                player.healthPoints -= damage;
+            }
     }
 }

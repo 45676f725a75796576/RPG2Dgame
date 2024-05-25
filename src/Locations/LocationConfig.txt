@@ -3,3 +3,4 @@ src/Locations/MainToGateLocation.txt
 src/Locations/GateLocation.txt
 src/Locations/null.txt
 src/Locations/City1.txt
+src/Locations/City2.txt
