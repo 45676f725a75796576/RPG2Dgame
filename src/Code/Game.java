@@ -22,9 +22,11 @@ import java.util.Scanner;
  */
 public class Game {
     private QuestPattern currentQuest;
-    private Item[] inventory = new Item[200];
+    private final Item[] inventory = new Item[200];
     private Location currentLocation;
-    private HashMap<String, Location> locations;
+    private final HashMap<String, Location> locations;
+    private Player player = PlayerBuilder.builder("knight");
+    private final Game g = this;
 
     public static void main(String[] args){
         try {
@@ -54,12 +56,22 @@ public class Game {
         window.setIconImage(img());
 
         MainMenu menu = new MainMenu();
-        GamePanel gamePanel = new GamePanel(this);
-        JButton startButton = new JButton();
+        final GamePanel gamePanel = new GamePanel(g, player);
+        JButton thiefButton = new JButton();
+        JButton knightButton = new JButton();
+        JButton tankButton = new JButton();
+        JButton wizardButton = new JButton();
 
-        startButton.setText("START");
+        thiefButton.setText("START AS THIEF");
+        knightButton.setText("START AS KNIGHT");
+        tankButton.setText("START AS TANK");
+        wizardButton.setText("START AS WIZARD");
 
-        menu.add(startButton);
+
+        menu.add(thiefButton);
+        menu.add(knightButton);
+        menu.add(wizardButton);
+        menu.add(tankButton);
 
         window.add(menu);
 
@@ -68,9 +80,45 @@ public class Game {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
-        startButton.addActionListener(new ActionListener() {
+        thiefButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                player = PlayerBuilder.builder("thief");
+                player.gp = gamePanel;
+                gamePanel.setPlayer(player);
+                window.add(gamePanel);
+                gamePanel.startGameThread();
+                menu.setVisible(false);
+            }
+        });
+        knightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player = PlayerBuilder.builder("knight");
+                gamePanel.setPlayer(player);
+                player.gp = gamePanel;
+                window.add(gamePanel);
+                gamePanel.startGameThread();
+                menu.setVisible(false);
+            }
+        });
+        wizardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player = PlayerBuilder.builder("mage");
+                gamePanel.setPlayer(player);
+                player.gp = gamePanel;
+                window.add(gamePanel);
+                gamePanel.startGameThread();
+                menu.setVisible(false);
+            }
+        });
+        tankButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player = PlayerBuilder.builder("tank");
+                gamePanel.setPlayer(player);
+                player.gp = gamePanel;
                 window.add(gamePanel);
                 gamePanel.startGameThread();
                 menu.setVisible(false);
@@ -88,7 +136,7 @@ public class Game {
 
     public Location getCurrentLocation() {
         return currentLocation;
-    }aa
+    }
     public void setCurrentLocation(String ID) {
         this.currentLocation = locations.get(ID);
     }

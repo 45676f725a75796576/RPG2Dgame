@@ -38,12 +38,13 @@ public class GamePanel extends JPanel implements Runnable{
 
     private BufferedImage bg;
 
-    int score = 0;
+    private int score = 0;
     private long recoverAttack = 0;
 
-    public GamePanel(Game game1)
+    public GamePanel(Game game1, Player player1)
     {
         game = game1;
+        player = player1;
         currentLocation = game.getCurrentLocation();
         player.gp = this;
         Random r = new Random();
@@ -117,6 +118,12 @@ public class GamePanel extends JPanel implements Runnable{
             enemy.Attack(player);
         }
         currentLocation.getEnemiesOnLocation().removeIf(enemy -> enemy.getHealthPoints() <= 0);
+        for(Enemy enemy : currentLocation.getEnemiesOnLocation()){
+            if(enemy.getHealthPoints() <= 0){
+                score += 10;
+                currentLocation.getEnemiesOnLocation().remove(enemy);
+            }
+        }
 
         recoverAttack-=1;
         if(player.hit && recoverAttack < 0){
@@ -151,5 +158,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         g2.dispose();
 
+    }
+
+    public void setPlayer(Player player){
+        this.player = player;
     }
 }

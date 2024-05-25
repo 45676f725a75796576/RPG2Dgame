@@ -47,7 +47,7 @@ public class Player extends Entity {
         if(leftPressed && posY > -56) {posY -= speed; flip = -1; offset = 112;}
         if(rightPressed && posY < 660) {posY += speed; flip = 1; offset = 0;}
 
-        if(use && posY < -46 && gp.game.getCurrentLocation().getNextLocations().get(1) != null) {
+        if(use && posY < -46 && gp.game.getCurrentLocation().getNextLocations().size() > 1) {
             gp.game.setCurrentLocation(gp.game.getCurrentLocation().getNextLocations().get(1));
             posY = 650;
         }
