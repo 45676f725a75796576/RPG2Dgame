@@ -1,4 +1,4 @@
 name=MainLocation
 locationID=0
 imageOfLocationPath=src/images/location1.png
-nextLocations=null,1
+nextLocations=0,1

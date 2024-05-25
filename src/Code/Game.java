@@ -27,6 +27,7 @@ public class Game {
     private final HashMap<String, Location> locations;
     private Player player = PlayerBuilder.builder("knight");
     private final Game g = this;
+    private JFrame window;
 
     public static void main(String[] args){
         try {
@@ -48,7 +49,7 @@ public class Game {
         }
         currentLocation = locations.get("0");
 
-        JFrame window = new JFrame();
+        window = new JFrame();
         window.setSize(720,540);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
@@ -147,5 +148,9 @@ public class Game {
                 if(inventory[i] instanceof Air) inventory[i] = new IronArmor();
             }
         }
+    }
+
+    public JFrame getWindow() {
+        return window;
     }
 }

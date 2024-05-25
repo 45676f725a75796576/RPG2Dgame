@@ -2,3 +2,4 @@ name=City2
 locationID=4
 imageOfLocationPath=src/images/city2.png
 nextLocations=3
+enemiesOnLocation=[{"imgPath":"src/images/bubak1.png","xCord":300,"yCord":300,"lootID":"1","damage":1,"healthPoints":8}]

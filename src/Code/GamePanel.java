@@ -94,7 +94,13 @@ public class GamePanel extends JPanel implements Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            if(player.healthPoints <= 0) break;
+            if(player.healthPoints <= 0) {
+                break;
+            }
+            if(score > 15){
+                game.getWindow().add(new EndMenu());
+                break;
+            }
         }
     }
 
