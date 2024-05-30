@@ -7,7 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Hrac
+ * Class has method Draw() to draw player and Attack() with player attack behaviour.
+ * Player has health points, speed of movement, attack speed and position on panel.
  */
 public class Player extends Entity {
     GamePanel gp;
@@ -20,21 +21,12 @@ public class Player extends Entity {
 
     protected int posX = 250, posY = 250;
 
-    /**
-     * Konstruktor
-     * @param gamePanel
-     */
     public Player(GamePanel gamePanel){
         this.gp = gamePanel;
     }
     public Player(){
 
     }
-
-    /**
-     * Metoda pro vyber obrazku
-     */
-
     private int flip = 1,offset = 0;
 
 

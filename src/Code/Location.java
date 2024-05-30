@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class with every information about location
+ */
 public class Location implements Serializable {
     private String locationID;
     private String name;

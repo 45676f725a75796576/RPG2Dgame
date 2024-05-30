@@ -1,5 +1,8 @@
 package Code;
 
+/**
+ * Class, which creates object of player using input String.
+ */
 public class PlayerBuilder {
     public static Player builder(String heroClass){
         Player hero;

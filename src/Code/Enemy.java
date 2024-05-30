@@ -1,7 +1,8 @@
 package Code;
 
-import java.util.ArrayList;
-
+/**
+ * Class of enemy, there is its information and attack behaviour.
+ */
 public class Enemy{
     private String imgPath;
     private int xCord, yCord;

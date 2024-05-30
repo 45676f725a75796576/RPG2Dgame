@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Code.GamePanel ridi co vidi hrac
+ * Code.GamePanel painting game and makes everything move.
  */
 public class GamePanel extends JPanel implements Runnable{
     final int originalTileSize = 16;
@@ -161,7 +161,7 @@ public class GamePanel extends JPanel implements Runnable{
             g2.drawString("You have succesfully helped a novice hero with his first feat. Many adventures and achievements still await him,", 20,20);
             g2.drawString(" but you turn off the game. There is nothing further. Only potato.",20,40);
             try {
-                g2.drawImage(ImageIO.read(new File("src/images/R (13).jpg")), 50, 50, 100,100,null);
+                g2.drawImage(ImageIO.read(new File(String.valueOf(getClass().getResourceAsStream("src/images/R (13).jpg")))), 50, 50, 100,100,null);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

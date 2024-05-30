@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Read and write class, after writing location needs edit of line with nextLocations.
+ * Wrong: nextLocations=["x","y"]
+ * Correct: nextLocations=x,y
+ * Line enemiesOnLocation doesn't need to be edited.
+ */
 public class LocationReadWrite {
     // dont use it pls
     public static void Write(Location location)

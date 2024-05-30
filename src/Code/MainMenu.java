@@ -9,13 +9,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * Hlavni menu
+ * Main menu.
  */
 public class MainMenu extends JPanel {
-
-    /**
-     * Konstruktor
-     */
     public MainMenu()
     {
         setPreferredSize(new Dimension(720, 540));
@@ -23,10 +19,6 @@ public class MainMenu extends JPanel {
         repaint();
     }
 
-    /**
-     * Metoda ktera hleda obrazek pro background hlavniho menu
-     * @return background hlavniho menu
-     */
     BufferedImage getImg(){
         BufferedImage _img;
         try {
@@ -39,10 +31,6 @@ public class MainMenu extends JPanel {
         return _img;
     }
 
-    /**
-     * Metoda pro kresleni hlavniho menu
-     * @param g the <code>Graphics</code> object to protect
-     */
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
