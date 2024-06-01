@@ -4,13 +4,6 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class Knight extends Player{
-    /**
-     * Konstruktor
-     *
-     * @param gamePanel
-     */
-
-
     public Knight(GamePanel gamePanel) {
         super(gamePanel);
         healthPoints = 10;

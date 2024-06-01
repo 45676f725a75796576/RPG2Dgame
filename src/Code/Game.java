@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 
 /**
- * Class, initializing game.
+ * Class, initializing game.aa
  */
 public class Game {
     private QuestPattern currentQuest;
@@ -42,7 +42,7 @@ public class Game {
             inventory[i] = new Air();
         }
         locations = new HashMap<>();
-        Scanner sc = new Scanner(new File(String.valueOf(getClass().getResource("src/Locations/LocationConfig.txt"))));
+        Scanner sc = new Scanner(new File("src/Locations/LocationConfig.txt"));
         while(sc.hasNextLine()){
             Location l = LocationReadWrite.Read(sc.nextLine());
             locations.put(l.getLocationID(), l);

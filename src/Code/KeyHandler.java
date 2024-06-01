@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import java.security.Key;
 
 /**
- * Obycejny keyHandler, jako v tutorialu
+ * Key handler to control player
  */
 public class KeyHandler implements KeyListener {
 
