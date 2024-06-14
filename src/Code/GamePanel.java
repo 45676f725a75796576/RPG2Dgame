@@ -160,11 +160,13 @@ public class GamePanel extends JPanel implements Runnable{
             g2.setColor(Color.WHITE);
             g2.drawString("You have succesfully helped a novice hero with his first feat. Many adventures and achievements still await him,", 20,20);
             g2.drawString(" but you turn off the game. There is nothing further. Only potato.",20,40);
-            try {
-                g2.drawImage(ImageIO.read(new File(String.valueOf(getClass().getResourceAsStream("src/images/R (13).jpg")))), 50, 50, 100,100,null);
+            /*try {
+                g2.drawImage(ImageIO.read(getClass().getResourceAsStream("src/images/R (13).jpg")), 50, 50, 100,100,null);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
+             */
         }
 
         g2.dispose();
